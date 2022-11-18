@@ -76,7 +76,7 @@ onEvent('click', setAlarm, function(){
        let currentTime =  display.innerText = hr + ':' + min + ':' + sec;
        
        if(isNaN(alarmHours) || isNaN(alarmMinutes) || isNaN(alarmSeconds)){
-        output.innerText = 'Enter a valid Number!'
+        output.innerText = 'Refresh and enter a valid Number!'
 
         } else if (alarmTime === currentTime){
             alarmSound.play();
@@ -96,9 +96,9 @@ onEvent('click', setAlarm, function(){
 
 onEvent('click', clear, () => {
     location.reload()
-    alarmHours = ' ';
-    alarmMinutes = ' ';
-    alarmSeconds = ' ';
+    hours.value = '';
+    minutes.value = '';
+    seconds.value = '';
 })
 
 

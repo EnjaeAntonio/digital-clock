@@ -13,20 +13,36 @@
         <script src="assets/script/index.js" defer></script>
     </head>
     <body class="alarm">
-       <main>
-            <section class="clock">
-                <div class="display"><h1></h1></div>
-            </section>
-            <section class="output-input">
-                <section class="output">
-                    <p><i class="fa-solid fa-bell"></i></p>
+        <header>
+            <div class="container flexbox">
+                <div class="title">
+                    <h1>Alarm Clock</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="">Projects</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </nav>
+        </header>
+        <main>
+            <section class="clock-wrapper">
+                <section class="clock">
+                    <div class="display"><h1></h1></div>
                 </section>
-                <section class="input-field">
-                    <input type="text" max="12" name="" class="hours" placeholder="Hours">
-                    <input type="text" max="60" name="" class="minutes" placeholder="Minutes">
-                    <input type="text" max="60" name="" class="seconds" placeholder="Seconds">
-                    <button class="alarm-btn">Set Alarm</button>
-                    <button class="clear">Refresh</button>
+                <section class="output-input">
+                    <section class="output">
+                        <p><i class="fa-solid fa-bell"></i></p>
+                    </section>
+                    <section class="input-field">
+                        <input type="text" value= "clear input" max="12" name="" class="hours" placeholder="Hours">
+                        <input type="text" max="60" name="" class="minutes" placeholder="Minutes">
+                        <input type="text" max="60" name="" class="seconds" placeholder="Seconds">
+                        <button class="alarm-btn">Set Alarm</button>
+                        <button class="clear">Refresh</button>
+                    </section>
                 </section>
             </section>
        </main>
