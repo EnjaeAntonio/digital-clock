@@ -17,15 +17,17 @@
             <section class="clock">
                 <div class="display"><h1></h1></div>
             </section>
-            <sectoin class="output-input">
+            <section class="output-input">
                 <section class="output">
                     <p><i class="fa-solid fa-bell"></i></p>
                 </section>
                 <section class="input-field">
-                    <input type="text" name="" id="enteralarm" placeholder="7:30">
+                    <input type="text" max="12" name="" class="hours" placeholder="Hours">
+                    <input type="text" max="60" name="" class="minutes" placeholder="Minutes">
+                    <input type="text" max="60" name="" class="seconds" placeholder="Seconds">
                     <button class="alarm-btn">Set Alarm</button>
                 </section>
-            </sectoin>
+            </section>
        </main>
     </body>
 </html>

@@ -25,28 +25,27 @@ function select(selector, parent = document) {
 
 const display = select('.display h1');
 const output = select('.output p');
-const setAlarm = select('.alarm-btn')
+const hours = select('.hours');
+const minutes = select('.minutes');
+const seconds = select('.seconds')
+const alarmBtn = select('.alarm-btn')
 const enterAlarm = select('#enteralarm');
-const alarmSound = ('OOJ\Enjae_Antonio_OOP_Assignment_one\assets\img\Wecker-sound.mp3');
+const alarmSound = ('/alarm.mp3');
+
 
 const clock = setInterval(() => {
     let todaysDate = new Date();
 
-    let hr = todaysDate.getHours().toString();
-    let min = todaysDate.getMinutes().toString();
+    let hr = todaysDate.getHours().toString().padStart(2, '0');
+    let min = todaysDate.getMinutes().toString().padStart(2, '0');
     let sec = todaysDate.getSeconds().toString().padStart(2, '0');
 
     display.innerText = `${hr}: ${min}: ${sec}`
 
-}, 1000 )
+}, 1000 );
 
-onEvent('click', setAlarm, function(){
-    let a = enterAlarm.value;
-    
-    output.innerText = `${a}`
-    if (output.innerText === display.innerText) {
-
-    }
-});
-
-alarmSound.play()
+onEvent('click', alarmBtn, function(){
+    let inputHours = hours.value;
+    let inputMinutes = minutes.value;
+    let inputSeconds = seconds.value;
+} )
