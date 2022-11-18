@@ -31,7 +31,7 @@ const seconds = select('.seconds')
 const setAlarm = select('.alarm-btn')
 const enterAlarm = select('#enteralarm');
 const alarmSound = new Audio('./assets/img/alarm.mp3');
-
+const clear = select('.clear');
 
 
 const clock = setInterval(() => {
@@ -75,22 +75,30 @@ onEvent('click', setAlarm, function(){
     
        let currentTime =  display.innerText = hr + ':' + min + ':' + sec;
        
-        if (alarmTime === currentTime){
+       if(isNaN(alarmHours) || isNaN(alarmMinutes) || isNaN(alarmSeconds)){
+        output.innerText = 'Enter a valid Number!'
+
+        } else if (alarmTime === currentTime){
             alarmSound.play();
             let element = document.body;
             element.classList.toggle("dark-mode");
-        } else if (alarmHours === '' || isNaN(alarmTime)) {
-            output.innerText = 'Please enter an alarm!'
-        }else {
+
+        } else if (alarmHours === '' || alarmHours > 12 || alarmMinutes >= 60 || alarmSeconds >= 60) {
+            output.innerText = 'Refresh and enter a valid time!'
+
+        } else 
             output.innerText = alarmTime
-        } 
 
            
     }, 1000 );
 });
 
 
-
-
+onEvent('click', clear, () => {
+    location.reload()
+    alarmHours = ' ';
+    alarmMinutes = ' ';
+    alarmSeconds = ' ';
+})
 
 

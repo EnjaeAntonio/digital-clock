@@ -28,6 +28,8 @@ body {
 
 .clock {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .clock h1 {
@@ -43,21 +45,41 @@ body {
 
 .output {
     height: 52px;
-    width: 100%;
     color: #fff;
     border-radius: 4px;
-    /* background-color: rgb(0 0 0 / 0.2); */
-    /* box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2) inset, -1px -1px 1px 0 rgba(255, 255, 255, 0.1) inset; */
-    border: 1px solid red;
+    /* background-color: rgb(0 0 0 / 0.2); 
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2) inset, -1px -1px 1px 0 rgba(255, 255, 255, 0.1) inset; */
     display: grid;
     justify-content: center;
     align-items: center;
 }
 
-input[type="button"]{
-    width: 200px;
-    height: 20px;
-    font-size: 20px;
-    color: #1a1d28;
+.output p {
+    font-size: 26px;
+}
+
+input[type="text"]{
+    max-width: 90px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+button {
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.alarm-btn {
+    background-color: var(--app-blue);
+   transition: all .2s ease-in;
+}
+
+.alarm-btn:hover{
+    background-color: var(--app-blue-hover);
+}
+
+.clear {
+    background-color: var(--app-red);
 }
 
