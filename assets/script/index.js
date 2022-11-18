@@ -23,12 +23,16 @@ function select(selector, parent = document) {
    console.log(content);
  }
 
-const hour = select('.hour')
-const minute = select('.minute')
-const seconds = select('.seconds')
+const display = select('.display h1')
+const output = select('.output p')
 
-function clock() {
+const digitalClock = setInterval(() => {
     let todaysDate = new Date();
 
-    let hr = 
-}
+    let hr = todaysDate.getHours().toString();
+    let min = todaysDate.getMinutes().toString();
+    let sec = todaysDate.getSeconds().toString().padStart(2, '0');
+
+    display.innerText = `${hr}: ${min}: ${sec}`
+    
+}, 1000 )
