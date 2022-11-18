@@ -33,6 +33,7 @@ const enterAlarm = select('#enteralarm');
 const alarmSound = new Audio('./assets/img/alarm.mp3');
 
 
+
 const clock = setInterval(() => {
     let todaysDate = new Date();
 
@@ -52,11 +53,12 @@ const clock = setInterval(() => {
 }, 1000 );
 
 onEvent('click', setAlarm, function(){
-    let alarmHours = hours.value;
-    let alarmMinutes = minutes.value;
-    let alarmSeconds = seconds.value;
+    let alarmHours = hours.value.toString();
+    let alarmMinutes = minutes.value.toString().padStart(2, '0');
+    let alarmSeconds = seconds.value.toString().padStart(2, '0');
     let alarmTime = alarmHours + ':' + alarmMinutes + ':' + alarmSeconds;
-    console.log(alarmTime)
+
+   
 
     setInterval(() => {
         let todaysDate = new Date();
@@ -72,10 +74,18 @@ onEvent('click', setAlarm, function(){
         }
     
        let currentTime =  display.innerText = hr + ':' + min + ':' + sec;
-    
-           if (alarmTime === currentTime){
-                alarmSound.play();
-           }
+       
+        if (alarmTime === currentTime){
+            alarmSound.play();
+            let element = document.body;
+            element.classList.toggle("dark-mode");
+        } else if (alarmHours === '' || isNaN(alarmTime)) {
+            output.innerText = 'Please enter an alarm!'
+        }else {
+            output.innerText = alarmTime
+        } 
+
+           
     }, 1000 );
 });
 
