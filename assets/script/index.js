@@ -84,7 +84,7 @@ onEvent('click', setAlarm, function(){
             element.classList.toggle("dark-mode");
 
         } else if (alarmHours === '' || alarmHours > 12 || alarmMinutes >= 60 || alarmSeconds >= 60) {
-            output.innerText = 'Refresh and enter a valid time!'
+            output.innerText = 'Refresh and enter an hour between 1-12!'
 
         } else 
             output.innerText = alarmTime
