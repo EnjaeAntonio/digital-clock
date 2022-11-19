@@ -41,11 +41,6 @@ const clock = setInterval(() => {
     let min = todaysDate.getMinutes().toString().padStart(2, '0');
     let sec = todaysDate.getSeconds().toString().padStart(2, '0');
 
-    if (hr > 12) {
-        hr -= 12;
-    } else if (hr === 0) {
-       hr = 12;
-    }
 
     display.innerText = hr + ':' + min + ':' + sec;
 
@@ -53,7 +48,7 @@ const clock = setInterval(() => {
 }, 1000 );
 
 onEvent('click', setAlarm, function(){
-    let alarmHours = hours.value.toString();
+    let alarmHours = hours.value.toString().padStart(2, '0');
     let alarmMinutes = minutes.value.toString().padStart(2, '0');
     let alarmSeconds = seconds.value.toString().padStart(2, '0');
     let alarmTime = alarmHours + ':' + alarmMinutes + ':' + alarmSeconds;
@@ -67,11 +62,6 @@ onEvent('click', setAlarm, function(){
         let min = todaysDate.getMinutes().toString().padStart(2, '0');
         let sec = todaysDate.getSeconds().toString().padStart(2, '0');
     
-        if (hr > 12) {
-            hr -= 12;
-        } else if (hr === 0) {
-           hr = 12;
-        }
     
        let currentTime =  display.innerText = hr + ':' + min + ':' + sec;
        
@@ -83,8 +73,8 @@ onEvent('click', setAlarm, function(){
             let element = document.body;
             element.classList.toggle("dark-mode");
 
-        } else if (alarmHours === '' || alarmHours > 12 || alarmMinutes >= 60 || alarmSeconds >= 60) {
-            output.innerText = 'Refresh and enter an hour between 1-12!'
+        } else if (alarmHours >= 24 || alarmMinutes >= 60 || alarmSeconds >= 60) {
+            output.innerText = 'Refresh and enter an hour between 0-23!'
 
         } else 
             output.innerText = alarmTime
